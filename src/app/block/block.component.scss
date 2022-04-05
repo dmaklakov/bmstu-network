@@ -1,0 +1,38 @@
+.clear {
+    clear: both;
+}
+
+.left {
+    float: left;
+    width: 600px;
+    padding: 20px;
+}
+
+.right {
+    padding: 20px;
+}
+
+.block {
+    width: 1200px;
+    margin: 20px auto;
+    display: block;
+    font-size: 20px;
+    line-height: 1.8em;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+.title {
+    display: block;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 20px 0;
+}
+
+.img_block {
+    text-align: center;
+}
+
+img {
+    max-width: 400px;
+}

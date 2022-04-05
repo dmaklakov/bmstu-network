@@ -1,0 +1,33 @@
+<bc-head-small></bc-head-small>
+<div class="coolPic">
+    <img src="../../images/coolPic.svg" width=180px>
+</div>
+
+<div class="filters">
+
+
+    <div class="tags">
+        <!-- <div *ngFor="let it of tagArray; let i = index">
+            <button [name]="clickArray[i]" (click)="clickArray[i][0] = !clickArray[i][0]">{{it}}</button>
+        </div> -->
+<button (click)="clickArray['музыка'] = !clickArray['музыка']" [ngClass]="{'music' : clickArray['музыка'], 'lighten' : !clickArray['музыка']}">музыка</button>
+<button (click)="clickArray['кино'] = !clickArray['кино']" [ngClass]="{'movie' : clickArray['кино'], 'lighten' : !clickArray['кино']}">кино</button>
+<button (click)="clickArray['книги'] = !clickArray['книги']" [ngClass]="{'books' : clickArray['книги'], 'lighten' : !clickArray['книги']}">книги</button>
+<button (click)="clickArray['спорт'] = !clickArray['спорт']" [ngClass]="{'sport' : clickArray['спорт'], 'lighten' : !clickArray['спорт']}">спорт</button>
+<button (click)="clickArray['технологии'] = !clickArray['технологии']" [ngClass]="{'tech' : clickArray['технологии'], 'lighten' : !clickArray['технологии']}">технологии</button>
+<button (click)="clickArray['развлечения'] = !clickArray['развлечения']" [ngClass]="{'entertain' : clickArray['развлечения'], 'lighten' : !clickArray['развлечения']}">развлечения</button>
+<button (click)="clickArray['путешествия'] = !clickArray['путешествия']" [ngClass]="{'trip' : clickArray['путешествия'], 'lighten' : !clickArray['путешествия']}">путешествия</button>
+<button (click)="clickArray['животные'] = !clickArray['животные']" [ngClass]="{'animals' : clickArray['животные'], 'lighten' : !clickArray['животные']}">животные</button>
+<button (click)="clickArray['наука'] = !clickArray['наука']" [ngClass]="{'movie' : clickArray['наука'], 'lighten' : !clickArray['наука']}">наука</button>
+<button (click)="clickArray['история'] = !clickArray['история']" [ngClass]="{'history' : clickArray['история'], 'lighten' : !clickArray['история']}">история</button>
+<button (click)="clickArray['еда'] = !clickArray['еда']" [ngClass]="{'food' : clickArray['еда'], 'lighten' : !clickArray['еда']}">еда</button>
+<button (click)="clickArray['природа'] = !clickArray['природа']" [ngClass]="{'nature' : clickArray['природа'], 'lighten' : !clickArray['природа']}">природа</button>
+<button (click)="clickArray['мода'] = !clickArray['мода']" [ngClass]="{'fashion' : clickArray['мода'], 'lighten' : !clickArray['мода']}">мода</button>
+        
+    </div>
+    <div class="search__btn">
+        <button (click)="sendFilters(clickArray)">Применить</button>
+    </div>
+</div>
+<svg width="960" height="600"></svg>
+<ng-container *ngComponentOutlet="back"></ng-container>

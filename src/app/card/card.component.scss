@@ -1,0 +1,28 @@
+.card {
+    position: relative;
+    max-width: 800px;
+    margin: 180px auto;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 1000;
+    text-align: center;
+    cursor: default;
+}
+
+.card h2 {
+    padding: 10px;
+}
+
+.up_background {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 500;
+    background: #000000;
+    opacity: .8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}

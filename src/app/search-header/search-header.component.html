@@ -1,0 +1,62 @@
+
+<header>
+    <div class="wrapper">
+        <img src="../../images/head-small.svg" alt="header" width=90%>
+    </div>
+    
+    <div class="header__content">
+        <div class="header__left">
+            <div class="logo">
+                <img src="../../images/logo.png" alt="logo">
+            </div>
+        </div>
+
+        <div class="search__line">
+            <input type="text" autocomplete="off" maxlength="20" size="45px" placeholder="Введите теги...">
+            <a><img src="../../images/searchSign.svg" width=16px></a>
+        </div>
+
+        <nav>
+            <ul>
+                
+                <li class="liprof">
+                    <a href=""><img [src]="getAva()" alt=""></a>
+                </li>
+                <li class="text">
+                    <a href="search">Поиск</a>
+                </li>
+                <li class="text">
+                    <a href="#">Выход</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="coolPic">
+        <img src="../../images/coolPic.svg" width=180px>
+    </div>
+
+    <div class="filters">
+
+    
+        <div class="tags">
+            <!-- <div *ngFor="let it of tagArray; let i = index">
+                <button [name]="clickArray[i]" (click)="clickArray[i][0] = !clickArray[i][0]">{{it}}</button>
+            </div> -->
+            <button (click)="clickArray[0] = !clickArray[0]" [ngClass]="{'music' : clickArray[0], 'lighten' : !clickArray[0]}">музыка</button>
+            <button (click)="clickArray[1] = !clickArray[1]" [ngClass]="{'movie' : clickArray[1], 'lighten' : !clickArray[1]}">кино</button>
+            <button (click)="clickArray[2] = !clickArray[2]" [ngClass]="{'books' : clickArray[2], 'lighten' : !clickArray[2]}">книги</button>
+            <button (click)="clickArray[3] = !clickArray[3]" [ngClass]="{'sport' : clickArray[3], 'lighten' : !clickArray[3]}">спорт</button>
+            <button (click)="clickArray[4] = !clickArray[4]" [ngClass]="{'tech' : clickArray[4], 'lighten' : !clickArray[4]}">технологии</button>
+            <button (click)="clickArray[5] = !clickArray[5]" [ngClass]="{'entertain' : clickArray[5], 'lighten' : !clickArray[5]}">развлечения</button>
+            <button (click)="clickArray[6] = !clickArray[6]" [ngClass]="{'trip' : clickArray[6], 'lighten' : !clickArray[6]}">путешествия</button>
+            <button (click)="clickArray[7] = !clickArray[7]" [ngClass]="{'animals' : clickArray[7], 'lighten' : !clickArray[7]}">животные</button>
+            <button (click)="clickArray[8] = !clickArray[8]" [ngClass]="{'science' : clickArray[8], 'lighten' : !clickArray[8]}">наука</button>
+            <button (click)="clickArray[9] = !clickArray[9]" [ngClass]="{'history' : clickArray[9], 'lighten' : !clickArray[9]}">история</button>
+            <button (click)="clickArray[10] = !clickArray[10]" [ngClass]="{'food' : clickArray[10], 'lighten' : !clickArray[10]}">еда</button>
+            <button (click)="clickArray[11] = !clickArray[11]" [ngClass]="{'nature' : clickArray[11], 'lighten' : !clickArray[11]}">природа</button>
+            <button (click)="clickArray[12] = !clickArray[12]" [ngClass]="{'fashion' : clickArray[12], 'lighten' : !clickArray[12]}">мода</button>
+            
+        </div>
+    </div>
+</header>

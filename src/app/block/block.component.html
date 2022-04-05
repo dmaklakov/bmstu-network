@@ -1,0 +1,25 @@
+<div class = 'block'>
+    <div class = 'left'>
+        <div *ngIf = "text_left(); else image_right">
+            <div class = 'title'>
+                {{ title }}
+            </div>
+            {{ text }}
+        </div>
+        <ng-template #image_right>
+            <div class = 'img_block'><img [src] = "urlImage"></div>
+        </ng-template>
+    </div>
+    <div class = 'right'>
+        <div *ngIf = "text_left(); else text_right">
+            <div class = 'img_block'><img [src] = "urlImage"></div>
+        </div>
+        <ng-template #text_right>
+            <div class = 'title'>
+                {{ title }}
+            </div>
+            {{ text }}
+        </ng-template>
+    </div>
+    <div class = 'clear'></div>
+</div>

@@ -1,0 +1,116 @@
+<div class="middle">
+    <div class="info">
+        <div class="main__pic">
+            <img [src]="PROFILE['avatar_photo']" width=300px height=300px>
+            {{saveAvatarAndName()}}
+        </div>
+        {{changeDate(PROFILE)}}
+    
+        <div class="full">
+            <div class="name">
+                {{PROFILE['last_name'] + ' ' + PROFILE['first_name']}}
+                <span *ngIf="isOur;">
+                    <span *ngIf="!isEdit; else Edit">
+                        <a (click)="toEdit()"><img src="../../images/pencil.svg" width=25px></a>
+                    </span>
+                    <ng-template #Edit>
+                        <span class="saveCancel">
+                        <button (click)="cancel()"><img src="../../images/close.svg" width=35px></button>
+                        <button (click)="saveChanges(PROFILE)"><img src="../../images/save.svg" width=120px></button>
+                        </span>
+                    </ng-template>
+                </span>
+                <ng-template #unset>
+                    <span class="unset">не задано</span>
+                </ng-template>
+            </div>
+
+            <div *ngFor="let group of (PROFILE | entries); let i = index">
+                <div class="block">
+                    <div class="header__wrap">
+                        <span class="info__header">{{group[0]}}</span>
+                    </div>
+                    <div *ngFor="let elem of group[1]; let j = index">
+                        <div *ngIf="group[0] != 'О себе'; else special">
+                            <div class="profile__info">
+                                <div class="key">
+                                    {{elem[0] | translate}}
+                                </div>
+                                <div *ngIf="!isEdit; else input">
+                                    <div class="value">
+                                        <span *ngIf ="elem[1] && true; else unset">
+                                           
+                                            <span *ngIf="elem[0] != 'bdate' && elem[0] != 'sex'; else reformat">
+                                                {{elem[1]}}
+                                            </span>
+                                            <ng-template #reformat>
+                                                <span *ngIf="elem[0] == 'bdate'; else formSex">
+                                                    {{elem[1] | myDate}}
+                                                </span>
+                                                <ng-template #formSex>
+                                                    {{elem[1] | mySex}}
+                                                </ng-template>
+                                            </ng-template>
+                                        </span>
+                                        <ng-template #unset>
+                                            <span class="unset">не задано</span>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                                <ng-template #input>
+                                    <div class="edit__profile">
+                                        <span *ngIf="elem[0] != 'sex'; else fixed">
+                                            <span *ngIf="elem[1]; else notset">
+                                                <span *ngIf="elem[0] != 'bdate'; else offerDate">
+                                                 
+                                                    <input type="text" [name]="PROFILE" maxlength="50" size="30" autocomplete="off" [(ngModel)] = "PROFILE[elem[0]]">
+                                                    <span class="bar"></span>
+                                                 
+                                                </span>
+                                                <ng-template #offerDate>
+                                              
+                                                    <input type="date" [name]="PROFILE" maxlength="50"  size="30" autocomplete="off" [(ngModel)] = "PROFILE[elem[0]]">
+                                                    <span class="bar"></span>
+                                                </ng-template>
+                                            </span>
+                                            <ng-template #notset>
+                                                <input type="text" name="PROFILE" maxlength="50" placeholder="Не задано" autocomplete="off" size="30" [(ngModel)] = "PROFILE[elem[0]]">
+                                                <span class="bar"></span>
+                                            </ng-template>
+                                        </span>
+                                        <ng-template #fixed>
+                                            <div class="value">
+                                                {{elem[1] | mySex}}
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <ng-template #special>
+                            <span *ngIf="!isEdit; else correct">
+                                <div class="about__self">
+                                    <span *ngIf="elem && true; else unset">
+                                        {{elem}}
+                                    </span>
+                                </div>
+                            </span>
+                            <ng-template #correct>
+                                <span *ngIf="elem && true; else Aboutnotset">
+                                    <textarea  maxlength="150" rows="6" cols="60" maxlength="300" [(ngModel)] = "PROFILE['aboutSelf']"></textarea>
+                                </span>
+                                <ng-template #Aboutnotset>
+                                    <textarea  maxlength="150" placeholder="Не задано" rows="6" cols="60" maxlength="300" [(ngModel)] = "PROFILE['aboutSelf']"></textarea>
+                                </ng-template>
+                            </ng-template>
+                            
+                        </ng-template>
+                    </div>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
